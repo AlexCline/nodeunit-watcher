@@ -1,6 +1,8 @@
 nodeunit-watcher
 ========
 
+http://search.npmjs.org/#/nodeunit-watcher
+
 A wrapper for [nodeunit](https://github.com/caolan/nodeunit/) to provide continuous testing.
 
 Usage
