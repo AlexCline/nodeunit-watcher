@@ -1,6 +1,6 @@
 {
     "name": "nodeunit-watcher",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "nodeunit wrapper for continuous testing.",
     "preferGlobal": "true",
     "bin": { "nodeunit-watcher": "./bin/nodeunit-watcher" },

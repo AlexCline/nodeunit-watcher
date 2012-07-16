@@ -12,26 +12,27 @@ args.forEach(function(arg) {
     }
 });
 
-console.log('Watching files: ' + files.join(',') + '  Crtl-C to Exit.');
-files.forEach(function(file){
-
+function runNodeunit() {
   exec('nodeunit ' + args.join(" "), function (error, stdout, stderr) {
     console.log(stdout);
     if(stderr) {
       console.log(stderr);
     }
   });
+}
+
+if (files.length)
+  console.log('Watching files: ' + files.join(',') + '  Crtl-C to Exit.');
+else
+  runNodeunit();
+  
+files.forEach(function(file){
+
+  runNodeunit();
 
   fs.watchFile(file, { persistent: true, interval: 2000 }, function(c, p){
     if(c.mtime > p.mtime) {
-    
-      exec('nodeunit ' + args.join(" "), function (error, stdout, stderr) {
-        console.log(stdout);
-        if(stderr) {
-          console.log(stderr);
-        }
-      });
-
+      runNodeunit();
     }
   });
 });
