@@ -10,7 +10,7 @@ nodeunit-watcher is simply a wrapper around your existing version of nodeunit.  
 
     nodeunit-watcher --reporter minimal testfile.js
     
-nodeunit-watcher checks your test files and calls `fs.watchFile` on them and calls a new instance of `nodeunit` whenever you make changes to the file specified.
+nodeunit-watcher calls `fs.watchFile` on your test files and runs a new instance of `nodeunit` whenever you make changes to the file specified.
 
 Bug Reports
 -----
