@@ -30,9 +30,15 @@ files.forEach(function(file){
 
   runNodeunit();
 
-  fs.watchFile(file, { persistent: true, interval: 2000 }, function(c, p){
-    if(c.mtime > p.mtime) {
-      runNodeunit();
-    }
-  });
+  if(fs.watch){
+    fs.watch(file, { persistent: true }, function(e, f){
+        runNodeunit();
+    });
+  } else {
+    fs.watchFile(file, { persistent: true, interval: 2000 }, function(c, p){
+      if(c.mtime > p.mtime) {
+        runNodeunit();
+      }
+    });
+  }
 });
